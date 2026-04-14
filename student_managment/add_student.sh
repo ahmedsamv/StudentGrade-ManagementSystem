@@ -4,17 +4,58 @@ mkdir -p students
 function add_student () {
 
 echo 'add student'
-read -p "Enter Student ID: " id 
-read -p "Enter Full name: " name
-read -p "Enter Email: " email
-read -p "Enter Academic year (1-6): " year
 
-echo $id
+
+while true; 
+do
+read -p "Enter Student ID: " id 
+if [[ "$id" =~ ^[0-9]+$ ]]; then 
+break
+else 
+echo "please enter valid id "
+fi
+done
+
 file="students/$id.stu"
  if [[ -f "$file" ]]; then
         echo "Student already exists!"
         return
     fi
+
+
+while true;
+do
+read -p "Enter Full name: " name
+if [[ -z "$name" ]]; then
+echo "name cant be empty"
+else
+break
+fi
+done
+
+
+while true;
+do 
+read -p "Enter Email: " email
+if [[ "$email" =~  ^.+@.+\..+$ ]]; then
+break 
+else
+echo "please input valid email"
+fi
+done
+
+while true; 
+do
+read -p "Enter Academic year (1-6): " year
+if [[ "$year" =~ ^[1-6]$  ]]; then
+break
+else
+echo "please input valid number "
+fi
+done
+
+
+
 
 echo "$id" >> "$file"
 
