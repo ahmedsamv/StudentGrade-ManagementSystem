@@ -3,8 +3,13 @@
 function delete_student(){
 while true; 
 do
-read -p "Enter Student Id you want to delete: " id 
 
+if [[ ! -d "students" || -z "$(ls students)" ]]; then
+echo "no found students to deleted"
+break
+fi
+
+read -p "Enter Student Id you want to delete: " id 
 file="students/$id.stu"
 if [[ ! -f "$file" ]] ; then
 echo "student not found"
