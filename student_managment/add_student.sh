@@ -2,6 +2,8 @@
 
 mkdir -p students
 function add_student () {
+while true;
+do
 
 echo 'add student'
 
@@ -9,7 +11,7 @@ echo 'add student'
 while true; 
 do
 read -p "Enter Student ID: " id 
-if [[ "$id" =~ ^[0-9]+$ ]]; then 
+if [[ "$id" =~ ^[1-9][0-9]*$ ]]; then 
 break
 else 
 echo "please enter valid id "
@@ -19,7 +21,7 @@ done
 file="students/$id.stu"
  if [[ -f "$file" ]]; then
         echo "Student already exists!"
-        return
+        continue
     fi
 
 
@@ -63,6 +65,16 @@ echo "$name" >> "$file"
 echo "$email" >> "$file"
 echo "$year" >> "$file"
 echo "student added successfully"
+
+read -p "do you want add more student? (y/n): " sure
+if [[ "$sure" == "y" || "$sure" == "Y" ]]; then
+continue
+else
+break
+fi
+
+done
+
 }
 
 add_student
