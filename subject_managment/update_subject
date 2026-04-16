@@ -15,6 +15,10 @@ function update_subject(){
     fi   
      
   echo "Enter a new name" read name
+    if [[ ! $name =~ ^[A-Za-z]}$ ]]; then
+        echo "Invalid name!"
+        return
+    fi
   echo "Enter a new credit" read credit
   
   echo "$code">>"$file"
