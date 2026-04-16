@@ -39,15 +39,15 @@ fi
 done
 
 
-file="subject_managment/subjects/$code.sub
-if [[ -f $file ]]; then
+file_sub="subject_managment/subjects/$code.sub
+if [[ -f $file_sub ]]; then
 echo "file exist alredy"
 else
 return
 fi
-echo>>"$code">>"$file"
-echo>>"$name">>"$file"
-echo>>"$credit">>"$file"
+echo "$code">>"$file"
+echo "$name">>"$file"
+echo "$credit">>"$file"
 
 
 
