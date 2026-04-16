@@ -1,0 +1,56 @@
+add_subject(){
+
+
+
+while true;do
+echo "Enter subject code" 
+read code
+if ! [[ $code =~ ^[A-Za-z]{2,5}[1-9]{2,5}$ ]]; then
+
+   echo "this is not a valid code"
+else
+ break
+ fi
+ done
+
+  
+ while true ;do
+echo "Enter subject name" 
+read name
+if ! [[ $name =~ ^[A-Za-z]{2,5}[1-9]{2,5}$ ]]; then
+
+   echo "this is not a valid code"
+else
+break
+fi
+done
+
+
+
+while true ;do
+echo "Enter subject credit" 
+read credit
+if ! [[ $credit = ~^[1-6]$ ]]; then
+
+   echo "this is not a valid credit"
+else
+break
+fi 
+done
+
+
+file="subject_managment/subjects/$code.sub
+if [[ -f $file ]]; then
+echo "file exist alredy"
+else
+return
+fi
+echo>>"$code">>"$file"
+echo>>"$name">>"$file"
+echo>>"$credit">>"$file"
+
+
+
+
+
+}
