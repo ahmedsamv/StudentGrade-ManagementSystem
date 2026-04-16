@@ -1,0 +1,36 @@
+
+
+
+function delete_subject(){
+   echo "Enter s subject to be deleted" name
+   
+   if ! [[ $name =~ ?^[A-Za-z ]]; then
+   	echo "not valid subject name" 
+   else
+   	return
+   fi
+   
+   if [[ -f Subjects/$name ]]; then 
+   	return
+   else
+   	echo "no such subject added"
+   fi
+ while true ; do  
+   echo "you really want to delete $name ? (Y/N)" read cho
+
+  if ! [[ $cho == Y||N || y||n ]]; then
+  
+   echo "not valid choise" 
+ 
+ else
+   rm Subjects/$name
+   
+   echo "function deleted sucssefully "
+    break;;
+    fi
+    done
+    
+   
+   
+   
+}
