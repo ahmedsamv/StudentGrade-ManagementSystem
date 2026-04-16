@@ -1,0 +1,22 @@
+#! /usr/bin/bash 
+
+function reports_statistics() {
+   while true; do
+        echo "=================================="
+        echo " Please choose from the menu below:"
+        echo "=================================="
+    select choice in "Student Transcript + GPA" "Subject Statistics"  "Top Students by GPA" "Failing Students Report" "Full Grade Matrix" "Exit"
+    do
+        case $choice in
+            "Student Transcript + GPA")  echo "hi from a"  ;; 
+            "Subject Statistics") echo "hi from b" ;;
+            "Top Students by GPA") echo "hi from c" ;; 
+            "Failing Students Report") echo "hi from d"  ;; 
+            "Full Grade Matrix") echo "hi from e"  ;; 
+            "Exit") return ;;
+            *) echo "Invalid choice" ;;
+        esac
+    done
+    done
+}
+reports_statistics
