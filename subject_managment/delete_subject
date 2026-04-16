@@ -16,7 +16,7 @@ function delete_subject(){
    	echo "no such subject added"
    fi
  while true ; do  
-   echo "you really want to delete $name ? (Y/N)" cho
+   echo "you really want to delete $name ? (Y/N)" read cho
 
   if ! [[ $cho == Y||N || y||n ]]; then
   
