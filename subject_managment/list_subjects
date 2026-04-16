@@ -7,7 +7,7 @@ for file_to_list in subjects/*.sub;do
 	name=$(sed -n '2p' "$file_to_list")
 	credits=$(sed -n '3p' "$file_to_list")
 
-	echo "Code: $code\ Name: $name \Credits:
+	echo "Code: $code| Name: $name |Credits:
 $credits"
 done
 }
