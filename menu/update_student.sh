@@ -48,14 +48,15 @@ function check_year(){
 function uptade_student(){
 while true;
 do
+
 read -p "enter id student you want update: " id 
 
-file="students/$id.stu"
+file="../sgms_data/students/$id.stu"
 
 
     if [[ ! -f "$file" ]]; then
         echo "student not found"
-        return
+        continue
     fi
 
 while true; do
@@ -74,7 +75,7 @@ while true; do
             "year") 
                   	check_year
            		 ;;
-            "exit") exit ;;
+            "exit") return ;;
             *) echo "Invalid choice" ;;
         esac
          echo "Updated successfully"
@@ -86,5 +87,3 @@ while true; do
 done
 
 }
-
-uptade_student

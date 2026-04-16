@@ -4,13 +4,13 @@ function delete_student(){
 while true; 
 do
 
-if [[ ! -d "students" || -z "$(ls students)" ]]; then
+if [[ ! -d "../sgms_data/students" || -z "$(ls ../sgms_data/students)" ]]; then
 echo "no found students to deleted"
 break
 fi
 
 read -p "Enter Student Id you want to delete: " id 
-file="students/$id.stu"
+file="../sgms_data/students/$id.stu"
 if [[ ! -f "$file" ]] ; then
 echo "student not found"
 continue
@@ -35,5 +35,3 @@ if [[ "$sure" == "y" || "$sure" == "Y" ]]; then
  
  done
 }
-
-delete_student
