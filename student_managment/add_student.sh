@@ -47,13 +47,13 @@ function add_student () {
 
 		while true; 
 		do
-		read -p "Enter Academic year (1-6): " year
-if [[ "$year" =~ ^[1-6]$  ]]; then
-break
-else
-echo "please input valid number "
-fi
-done
+			read -p "Enter Academic year (1-6): " year
+			if [[ "$year" =~ ^[1-6]$  ]]; then
+			break
+			else
+			echo "please input valid number "
+			fi
+		done
 
 
 

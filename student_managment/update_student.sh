@@ -1,5 +1,50 @@
 #! /usr/bin/bash
 
+
+
+function check_name(){
+		    
+		    while true;
+		do
+			read -p "Enter new name: " name
+			if [[ -z "$name" ]]; then
+			echo "name cant be empty"
+			else
+			sed -i "2s/.*/$name/" "$file"
+			break
+			fi
+		done
+		    
+}
+
+function check_email (){
+
+while true;
+		do 
+			    read -p "Enter new email: " email
+			if [[ "$email" =~  ^.+@.+\..+$ ]]; then
+			  sed -i "3s/.*/$email/" "$file"
+			break 
+			else
+			echo "please input valid email"
+			fi
+		done
+}
+
+function check_year(){
+		while true; 
+		do
+			read -p "Enter new year: " year
+			if [[ "$year" =~ ^[1-6]$  ]]; then
+			sed -i "4s/.*/$year/" "$file"
+			break
+			else
+			echo "please input valid number "
+			fi
+		done
+
+}
+
 function uptade_student(){
 while true;
 do
@@ -21,16 +66,13 @@ while true; do
     do
         case $choice in
             "name")  
-		    read -p "Enter new name: " name
-		    sed -i "2s/.*/$name/" "$file"
+			check_name
 		    ;;
             "email") 
-                        read -p "Enter new email: " email
-           	     sed -i "3s/.*/$email/" "$file"
+                    	check_email
                       ;;
             "year") 
-                        read -p "Enter new year: " year
-          		  sed -i "4s/.*/$year/" "$file"
+                  	check_year
            		 ;;
             "exit") exit ;;
             *) echo "Invalid choice" ;;
