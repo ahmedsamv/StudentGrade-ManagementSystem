@@ -10,8 +10,8 @@ function main_menu() {
     do
         case $choice in
             "Manage Students") student_manage ;; 
-            "Manage Subjects") echo 'sub';;
-            "Manage Grades") echo 'grad';; 
+            "Manage Subjects") subject_manage ;;
+            "Manage Grades")  student_grades ;; 
             "Reports & Statistics") echo 'rep'  ;; 
             "Exit") exit ;;
             *) echo "Invalid choice" ;;

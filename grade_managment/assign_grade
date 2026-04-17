@@ -1,0 +1,52 @@
+ 
+ 
+ 
+  function assign_grade(){
+  
+   echo "Enter subject code" read subcode
+  filesub="subject_management/Subjects/$subcode.sub"
+  if [ ! -f filesub ]; then 
+	echo "subject not found"
+	return
+  fi
+  echo "Enter grade code" read grdcode
+  filegrd="grade_management/grades/$grdcode.grd"
+ if [  -f filegrd ]; then 
+	echo "grade already exist"
+	return
+	fi
+	
+  echo "Enter student id" read stdcode
+  filestd="student_management/Students/$stdcode.std"
+  if [ ! -f filestd ]; then 
+	echo "student is not exist"
+	return
+        fi
+        
+        
+        
+        while true;  do  
+        echo "Enter the score (0-100)" read score
+        
+        if [ $score ! =~ ^[0-9]+(\.[0-9]+)?$ ]; then
+        echo "invalid score"
+        else
+         
+         break
+         fi
+        done
+        
+        if (( $(echo"$score >=90"|bc -l )); then letter = "+A"
+        elif (( $(echo"$score >=85"|bc -l )); then letter ="A"
+        elif (( $(echo"$score >=80"|bc -l )); then letter ="-A"
+        elif (( $(echo"$score >=75"|bc -l )); then letter ="+B"
+        elif (( $(echo"$score >=70"|bc -l )); then letter ="B" 
+        elif (( $(echo"$score >=65"|bc -l )); then letter ="-B"
+        elif (( $(echo"$score >=60"|bc -l )); then letter ="+C"
+        elif (( $(echo"$score >=55"|bc -l )); then letter ="C"
+        elif (( $(echo"$score >=50"|bc -l )); then letter ="-C"
+        elif (( $(echo"$score >=45"|bc -l )); then letter ="D"
+        else  then letter = 'F'
+        fi
+        echo "$stdcode|$score|$letter" >>$filegrade
+}
