@@ -3,7 +3,7 @@
 
 
 function student_grade() {
-   while true; do
+    
         echo "=================================="
         echo " Please choose from the menu below:"
         echo "=================================="
@@ -14,8 +14,8 @@ function student_grade() {
             "view_grades_subject") view_grades_subject ;;
             "delete_grade") delete_grade ;; 
             "update_grade") update_grade ;; 
-            "Exit") exit ;;
+            "Exit") break ;;
             *) echo "Invalid choice" ;;
         esac
     done
-    done
+    }

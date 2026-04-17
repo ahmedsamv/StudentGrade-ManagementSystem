@@ -2,7 +2,7 @@
 
 
 function subject_manage() {
-   while true; do
+  
         echo "=================================="
         echo " Please choose from the menu below:"
         echo "=================================="
@@ -13,9 +13,9 @@ function subject_manage() {
             "List Subjects") echo 'sub';;
             "Update Subject") echo 'grad';; 
             "Delete Subject") echo 'rep'  ;; 
-            "Exit") exit ;;
+            "Exit") break ;;
             *) echo "Invalid choice" ;;
         esac
     done
-    done
+     
 }
