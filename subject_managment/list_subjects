@@ -1,7 +1,7 @@
-list_subjects(){
+ list_subjects(){
 
-for file_to_list in subjects/*.sub;do
-	[ -e "$file_to_list"] continue
+for file_to_list in ../subject_managment/subjects/*.sub; do
+	[ -e "$file_to_list" ] || continue
 	
 	code=$(sed -n '1p' "$file_to_list")
 	name=$(sed -n '2p' "$file_to_list")
