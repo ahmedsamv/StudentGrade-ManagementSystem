@@ -1,36 +1,35 @@
-
-
-
-function delete_subject(){
-   echo "Enter s subject to be deleted" name
+ delete_subject(){
+   echo "Enter s subject to be deleted" 
+   read code
    
-   if ! [[ $name =~ ?^[A-Za-z ]]; then
-   	echo "not valid subject name" 
-   else
+   if ! [[ $code =~ ^[A-Za-z0-9]+$ ]]; then
+   	echo "not valid subject code" 
    	return
    fi
-     grade_file="grade_managment/grades/$name.grd"
-     sub_file=Subject_managment/ Subjects/$name
-   if [[ -f sub_file ]]; then 
-   	return
-   else
+     grade_file="../grade_managment/grades/$code.grd"
+     sub_file="../subject_managment/subjects/$code.sub"
+   if [[ ! -f $sub_file ]]; then 
    	echo "no such subject added"
+   		return
    fi
- while true ; do  
-   echo "you really want to delete $name ? (Y/N)" read cho
+ while true; do
+    echo "you really want to delete $code ? (Y/N)"
+    read cho
 
-  if ! [[ $cho == Y||N || y||n ]]; then
-  
-   echo "not valid choise" 
- 
- else
-   rm sub_file
-   rm -f "$grade_file"
-   
-   echo "function deleted sucssefully "
-    break;;
+    if [[ $cho == "Y" || $cho == "y" ]]; then
+        rm -f "$sub_file"
+        rm -f "$grade_file"
+        echo "deleted successfully"
+        break
+
+    elif [[ $cho == "N" || $cho == "n" ]]; then
+        echo "cancelled"
+        break
+
+    else
+        echo "invalid choice"
     fi
-    done
+done
     
    
    
