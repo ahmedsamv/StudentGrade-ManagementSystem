@@ -1,0 +1,23 @@
+function view_grade(){
+echo "Enter subject code" 
+read code
+ filegrd="../grade_managment/grades/$code.grd"
+ filesub="../subject_managment/subjects/$code.sub"
+if [[ ! -f $filesub ]]; then
+    echo "Subject not found!"
+    return
+fi
+
+if [[ ! -f $filegrd ]]; then
+echo "no grades found"
+  return
+  fi
+  echo "StudentID | Score | Grade"
+  echo "--------------------------"
+  cat "$filegrd"
+}
+
+
+
+
+ 
