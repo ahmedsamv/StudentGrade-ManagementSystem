@@ -1,6 +1,6 @@
 #! /usr/bin/bash 
 
-mkdir -p students
+mkdir -p ../sgms_data/students
 function add_student () {
 	while true;
 	do
@@ -17,7 +17,7 @@ function add_student () {
 			fi
 		done
 
-	file="students/$id.stu"
+	file="../sgms_data/students/$id.stu"
 	if [[ -f "$file" ]]; then
         echo "Student already exists!"
         continue
@@ -47,13 +47,13 @@ function add_student () {
 
 		while true; 
 		do
-		read -p "Enter Academic year (1-6): " year
-if [[ "$year" =~ ^[1-6]$  ]]; then
-break
-else
-echo "please input valid number "
-fi
-done
+			read -p "Enter Academic year (1-6): " year
+			if [[ "$year" =~ ^[1-6]$  ]]; then
+			break
+			else
+			echo "please input valid number "
+			fi
+		done
 
 
 
@@ -75,5 +75,3 @@ fi
 done
 
 }
-
-add_student

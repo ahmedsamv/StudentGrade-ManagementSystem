@@ -1,5 +1,9 @@
 #! /usr/bin/bash
 
+source add_student.sh
+source update_student.sh
+source list_students.sh
+source delete_student.sh
 
 function student_manage() {
    while true; do
@@ -9,13 +13,15 @@ function student_manage() {
     select choice in "Add Student" "List Students"  "Update Student" "Delete Student" "Exit"
     do
         case $choice in
-            "Add Student") echo 'stu' ;; 
-            "List Students") echo 'sub';;
-            "Update Student") echo 'grad';; 
-            "Delete Student") echo 'rep'  ;; 
+            "Add Student")  add_student  ;; 
+            "List Students") list_students ;;
+            "Update Student") uptade_student ;; 
+            "Delete Student") delete_student  ;; 
             "Exit") exit ;;
             *) echo "Invalid choice" ;;
         esac
     done
     done
 }
+
+
