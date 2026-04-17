@@ -9,8 +9,9 @@ function delete_subject(){
    else
    	return
    fi
-   
-   if [[ -f Subjects/$name ]]; then 
+     grade_file="grade_managment/grades/$name.grd"
+     sub_file=Subject_managment/ Subjects/$name
+   if [[ -f sub_file ]]; then 
    	return
    else
    	echo "no such subject added"
@@ -23,7 +24,8 @@ function delete_subject(){
    echo "not valid choise" 
  
  else
-   rm Subjects/$name
+   rm sub_file
+   rm -f "$grade_file"
    
    echo "function deleted sucssefully "
     break;;
