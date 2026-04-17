@@ -1,6 +1,4 @@
-add_subject(){
-
-
+ add_subject(){
 
 while true;do
 echo "Enter subject code" 
@@ -17,9 +15,9 @@ else
  while true ;do
 echo "Enter subject name" 
 read name
-if ! [[ $name =~ ^[A-Za-z]{2,5}[1-9]{2,5}$ ]]; then
+if ! [[ $name =~ ^[A-Za-z[:space:]]+$ ]]; then
 
-   echo "this is not a valid code"
+   echo "this is not a valid name"
 else
 break
 fi
@@ -30,7 +28,7 @@ done
 while true ;do
 echo "Enter subject credit" 
 read credit
-if ! [[ $credit = ~^[1-6]$ ]]; then
+if ! [[ $credit =~ ^[1-6]$ ]]; then
 
    echo "this is not a valid credit"
 else
@@ -39,18 +37,13 @@ fi
 done
 
 
-file_sub="subject_managment/subjects/$code.sub
+file_sub="../subject_managment/subjects/$code.sub"
 if [[ -f $file_sub ]]; then
 echo "file exist alredy"
-else
 return
 fi
-echo "$code">>"$file"
-echo "$name">>"$file"
-echo "$credit">>"$file"
+echo "$code" >> "$file_sub"
+echo "$name" >> "$file_sub"
+echo "$credit" >> "$file_sub"
 
-
-
-
-
-}
+} 
