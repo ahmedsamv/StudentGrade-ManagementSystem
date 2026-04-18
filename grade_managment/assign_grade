@@ -14,7 +14,7 @@
    
   echo "Enter student id"
    read stdcode
-  filestd="../student_managment/students/$stdcode.stu"
+  filestd="../sgms_data/students/$stdcode.stu"
   if [[ ! -f $filestd ]]; then 
 	echo "student is not exist"
 	return
@@ -62,3 +62,4 @@
 
         echo "Grade assigned successfully!"
 }
+assign_grade

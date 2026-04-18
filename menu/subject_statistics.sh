@@ -2,16 +2,34 @@
 
 function subject_statistics(){
 
-read -p "enter subject code: " subjcode
+   read -p "Enter subject code: " subjcode
 
-file="../grade_managment/grades/$subjcode.grd"
+    file="../subject_managment/subjects/$subjcode.sub"
 
-if [ ! -f "$file" ]; then
-echo "subject not found"
-return
-fi 
+    if [[ ! -f "$file" ]]; then
+        echo "Subject not found"
+        return
+    fi
 
+    name=$(sed -n '2p' "$file")
+    credits=$(sed -n '3p' "$file")
 
+    echo "----- Subject Info -----"
+    echo "Code: $code"
+    echo "Name: $name"
+    echo "Credits: $credits"
+
+    grd_file="../grade_managment/grades/$subjcode.grd"
+
+    if [[ ! -f "$grd_file" ]]; then
+        echo "No grades recorded for this subject"
+        return
+    fi
+
+    echo ""
+    echo "----- Statistics -----"
+    
+    
 awk -F'|' '
 {
 
@@ -28,7 +46,7 @@ print "Min = " min
 print "no data"
 }
 }
-' "$file"
+' "$grd_file"
 }
 
 subject_statistics
