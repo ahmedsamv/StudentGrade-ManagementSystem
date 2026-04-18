@@ -1,6 +1,7 @@
 #! /usr/bin/bash	
-
-source student_mange.sh 
+source  student_grade 
+source subject_mange.sh
+source student_mange.sh
 function main_menu() {
    while true; do
         echo "=================================="
@@ -10,8 +11,8 @@ function main_menu() {
     do
         case $choice in
             "Manage Students") student_manage ;; 
-            "Manage Subjects") echo 'sub';;
-            "Manage Grades") echo 'grad';; 
+            "Manage Subjects") subject_manage ;;
+            "Manage Grades")  student_grade ;; 
             "Reports & Statistics") echo 'rep'  ;; 
             "Exit") exit ;;
             *) echo "Invalid choice" ;;

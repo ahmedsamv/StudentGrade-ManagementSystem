@@ -1,35 +1,39 @@
-
-
-
-function update_subject(){
-
-  echo "enter a subject code" read code
+ update_subject(){
+echo "CODE=$code"
+echo "FILE=$file_update"
+ls ../subject_managment/subjects/
+  echo "enter a subject code" 
+  read code
   
-  file_update = "Subjects/$code.sub"
+ file_update="../subject_managment/subjects/$code.sub"
   
-   if ! [ -f "$file_update" ];
+   if ! [ -f "$file_update" ]; then
         echo "file not founded"
          return
    
         
     fi   
      
-  echo "Enter a new name" read name
-    if [[ ! $name =~ ^[A-Za-z]}$ ]]; then
+  echo "Enter a new name" 
+  read name
+    if [[ ! $name =~ ^[A-Za-z[:space:]]+$ ]]; then
         echo "Invalid name!"
         return
     fi
-  echo "Enter a new credit" read credit
+  echo "Enter a new credit" 
+  read credit
   
-  echo "$code">>"$file"
-  echo "$name">>"$file"
-  echo "$credit">>"$file"
-  
-    if ! [[ $credit =~ ^[1-6]$ ]]; then
+   if ! [[ $credit =~ ^[1-6]$ ]]; then
         echo "Invalid Credit!"
         return
     fi
   
+  
+  echo "$code">>"$file_update"
+  echo "$name">>"$file_update"
+  echo "$credit">>"$file_update"
+  
+    
   echo "update sucssessfully"
 
 

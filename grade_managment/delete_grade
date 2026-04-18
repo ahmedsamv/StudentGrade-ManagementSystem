@@ -1,0 +1,25 @@
+
+
+function delete_grade (){
+echo "Enter subject code"
+read subcode
+
+echo "Enter student id"
+read stdcode
+
+filegrd="grade_management/grades/$subcode.grd"
+
+if [[ ! -f $filegrd ]]; then
+    echo "No grades file found for this subject"
+    return
+fi
+
+if ! grep -q "^$stdcode|" "$filegrd"; then
+    echo "Grade not found for this student"
+    return
+fi
+
+awk -F'|' -v id="$stdcode" '$1 != id' "$filegrd" > tmp && mv tmp "$filegrd"
+
+echo "Grade deleted successfully!"
+}
