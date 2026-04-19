@@ -11,7 +11,7 @@ function top_student() {
         total=0
         count=0
 
-        for file in ../grade_managment/grades/*.grd; do
+        for file in ../sgms_data/grades/*.grd; do
 
             line=$(grep "^$sid|" "$file")
 
@@ -55,6 +55,6 @@ function top_student() {
 }
 
 
-top_student
+
 
 

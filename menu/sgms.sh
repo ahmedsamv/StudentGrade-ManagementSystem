@@ -2,6 +2,7 @@
 source  student_grade 
 source subject_mange.sh
 source student_mange.sh
+source reports_statistics
 function main_menu() {
    while true; do
         echo "=================================="
@@ -13,7 +14,7 @@ function main_menu() {
             "Manage Students") student_manage ;; 
             "Manage Subjects") subject_manage ;;
             "Manage Grades")  student_grade ;; 
-            "Reports & Statistics") echo 'rep'  ;; 
+            "Reports & Statistics") reports_statistics  ;; 
             "Exit") exit ;;
             *) echo "Invalid choice" ;;
         esac
