@@ -1,6 +1,6 @@
  list_subjects(){
 
-for file_to_list in ../subject_managment/subjects/*.sub; do
+for file_to_list in ../sgms_data/subjects/*.sub; do
 	[ -e "$file_to_list" ] || continue
 	
 	code=$(sed -n '1p' "$file_to_list")

@@ -1,11 +1,11 @@
  update_subject(){
 echo "CODE=$code"
 echo "FILE=$file_update"
-ls ../subject_managment/subjects/
+ls ../sgms_data/subjects
   echo "enter a subject code" 
   read code
   
- file_update="../subject_managment/subjects/$code.sub"
+ file_update="../sgms_data/subjects/$code.sub"
   
    if ! [ -f "$file_update" ]; then
         echo "file not founded"

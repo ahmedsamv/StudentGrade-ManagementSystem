@@ -1,8 +1,8 @@
 function view_grade(){
 echo "Enter subject code" 
 read code
- filegrd="../grade_managment/grades/$code.grd"
- filesub="../subject_managment/subjects/$code.sub"
+ filegrd="../sgms_data/grades/$code.grd"
+ filesub="../sgms_data/subjects/$code.sub"
 if [[ ! -f $filesub ]]; then
     echo "Subject not found!"
     return

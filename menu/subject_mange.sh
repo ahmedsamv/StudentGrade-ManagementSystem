@@ -1,9 +1,9 @@
 #! /usr/bin/bash
-source ../subject_managment/addsubject
 
-source ../subject_managment/update_subject
-source ../subject_managment/list_subjects 
-source ../subject_managment/delete_subject
+source addsubject
+source update_subject
+source list_subjects 
+source delete_subject
 
 function subject_manage() {
   
