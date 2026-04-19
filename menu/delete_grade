@@ -15,8 +15,7 @@ if [[ ! -f $filegrd ]]; then
 fi
 
 
-echo "Enter student id"
-read stdcode
+
 
 if ! grep -q "^$stdcode|" "$filegrd"; then
     echo "Grade not found for this student"
