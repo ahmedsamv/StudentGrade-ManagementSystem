@@ -26,7 +26,7 @@ function student_transcript(){
     echo "----- Grades -----"
     found=0
 
-    for file in "../sgms_data//grades"/*.grd
+    for file in "../sgms_data/grades"/*.grd
     do
         [[ -f "$file" ]] || continue
 
@@ -83,4 +83,4 @@ function student_transcript(){
     echo "GPA: $gpa"
 }
 
-student_transcript
+
