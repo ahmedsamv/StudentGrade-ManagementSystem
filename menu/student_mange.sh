@@ -10,14 +10,14 @@ function student_manage() {
         echo "=================================="
         echo " Please choose from the menu below:"
         echo "=================================="
-    select choice in "Add Student" "List Students"  "Update Student" "Delete Student" "Exit"
+    select choice in "Add Student" "List Students"  "Update Student" "Delete Student" "back"
     do
         case $choice in
             "Add Student")  add_student  ;; 
             "List Students") list_students ;;
             "Update Student") uptade_student ;; 
             "Delete Student") delete_student  ;; 
-            "Exit") exit ;;
+            "back") return ;;
             *) echo "Invalid choice" ;;
         esac
     done

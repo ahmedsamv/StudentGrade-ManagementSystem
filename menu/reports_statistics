@@ -11,7 +11,7 @@ function reports_statistics() {
         echo "=================================="
         echo " Please choose from the menu below:"
         echo "=================================="
-    select choice in "Student Transcript + GPA" "Subject Statistics"  "Top Students by GPA" "Failing Students Report" "Full Grade Matrix" "Exit"
+    select choice in "Student Transcript + GPA" "Subject Statistics"  "Top Students by GPA" "Failing Students Report" "Full Grade Matrix" "back"
     do
         case $choice in
             "Student Transcript + GPA")  student_transcript  ;; 
@@ -19,7 +19,7 @@ function reports_statistics() {
             "Top Students by GPA") top_student ;; 
             "Failing Students Report") failing_students  ;; 
             "Full Grade Matrix") fullGrade_matrix  ;; 
-            "Exit") return ;;
+            "back") return ;;
             *) echo "Invalid choice" ;;
         esac
     done
