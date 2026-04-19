@@ -29,7 +29,7 @@ ls ../sgms_data/subjects
     fi
   
   
-  echo "$code">>"$file_update"
+  echo "$code">"$file_update"
   echo "$name">>"$file_update"
   echo "$credit">>"$file_update"
   
