@@ -4,9 +4,10 @@ function delete_grade (){
 echo "Enter subject code"
 read subcode
 
- 
+echo "Enter student id"
+read stdcode
 
-filegrd="../grade_managment/grades/$subcode.grd"
+filegrd="../sgms_data/grades/$subcode.grd"
 
 if [[ ! -f $filegrd ]]; then
     echo "No grades file found for this subject"

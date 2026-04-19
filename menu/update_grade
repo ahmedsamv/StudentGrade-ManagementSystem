@@ -7,7 +7,7 @@ read code
 
  
 
-filegrd="../grade_managment/grades/$code.grd"
+filegrd="../sgms_data/grades/$code.grd"
 
 if [[ ! -f $filegrd ]]; then 
  echo "grade not exist"

@@ -1,4 +1,4 @@
- 
+  mkdir -p ../sgms_data/grades
  
  
   function assign_grade(){
@@ -6,7 +6,7 @@
    echo "Enter subject code"
    
     read subcode
-  filesub="../subject_managment/subjects/$subcode.sub"
+  filesub="../sgms_data/subjects/$subcode.sub"
   if [[ ! -f $filesub ]]; then 
 	echo "subject not found"
 	return
@@ -20,7 +20,7 @@
 	return
         fi
         
-        filegrd="../grade_managment/grades/$subcode.grd"
+        filegrd="../sgms_data/grades/$subcode.grd"
  if [[  -f $filegrd ]] && grep -q "^$stdcode|" "$filegrd"; then
 	echo "grade already exist for the student"
 	return
@@ -62,4 +62,4 @@
 
         echo "Grade assigned successfully!"
 }
-assign_grade
+

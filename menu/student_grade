@@ -1,10 +1,10 @@
 
- #!/usr/bin/bash
+ #! /usr/bin/bash
 
-source ../grade_managment/assign_grade   
-source ../grade_managment/view_grade         
-source ../grade_managment/delete_grade
-source ../grade_managment/update_grade                
+source assign_grade   
+source view_grade         
+source delete_grade
+source update_grade                
  
 function student_grade() {
     

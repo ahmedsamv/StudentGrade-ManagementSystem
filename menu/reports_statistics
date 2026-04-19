@@ -1,5 +1,11 @@
 #! /usr/bin/bash 
 
+source student_transcrpt.sh
+source subject_statistics.sh
+source top_student.sh
+source failing_student.sh
+source fullGrade_matrix.sh
+
 function reports_statistics() {
    while true; do
         echo "=================================="
@@ -8,15 +14,15 @@ function reports_statistics() {
     select choice in "Student Transcript + GPA" "Subject Statistics"  "Top Students by GPA" "Failing Students Report" "Full Grade Matrix" "Exit"
     do
         case $choice in
-            "Student Transcript + GPA")  echo "hi from a"  ;; 
-            "Subject Statistics") echo "hi from b" ;;
-            "Top Students by GPA") echo "hi from c" ;; 
-            "Failing Students Report") echo "hi from d"  ;; 
-            "Full Grade Matrix") echo "hi from e"  ;; 
+            "Student Transcript + GPA")  student_transcript  ;; 
+            "Subject Statistics") subject_statistics ;;
+            "Top Students by GPA") top_student ;; 
+            "Failing Students Report") failing_students  ;; 
+            "Full Grade Matrix") fullGrade_matrix  ;; 
             "Exit") return ;;
             *) echo "Invalid choice" ;;
         esac
     done
     done
 }
-reports_statistics
+
