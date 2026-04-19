@@ -1,5 +1,5 @@
  update_subject(){
-echo "CODE=$code"
+ 
 echo "FILE=$file_update"
 ls ../sgms_data/subjects
   echo "enter a subject code" 
