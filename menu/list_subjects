@@ -7,8 +7,8 @@ for file_to_list in ../sgms_data/subjects/*.sub; do
 	name=$(sed -n '2p' "$file_to_list")
 	credits=$(sed -n '3p' "$file_to_list")
 
-	echo "Code: $code| Name: $name |Credits:
-$credits"
+	echo "Code| Name |Credits"
+	echo "$code|$name|$credits" 
 done
 }
 
