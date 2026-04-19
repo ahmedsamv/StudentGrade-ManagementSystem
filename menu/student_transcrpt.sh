@@ -3,14 +3,22 @@
 
 function student_transcript(){
 
+if [[ ! -d "../sgms_data/students" || -z "$(ls "../sgms_data/students")" ]]; then
+        echo "No students found"
+        return
+    fi
+while true
+do
     read -p "Enter student ID: " sid
 
     student_file="../sgms_data/students/$sid.stu"
 
-    if [[ ! -f "$student_file" ]]; then
-        echo "Student not found"
-        return
+    if [[ -f "$student_file" ]]; then
+        break
+             else    
+     		echo "student not found try again"
     fi
+  done
     
     name=$(sed -n '2p' "$student_file")
     email=$(sed -n '3p' "$student_file")

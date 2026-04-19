@@ -3,6 +3,17 @@
 
 function top_student() {
 
+if [[ ! -d "../sgms_data/students" || -z "$(ls "../sgms_data/students")" ]]; then
+        echo "No students found"
+        return
+    fi
+
+
+    if [[ ! -d "../sgms_data/grades" || -z "$(ls "../sgms_data/grades")" ]]; then
+        echo "No grades found"
+        return
+    fi
+
  for stu in ../sgms_data/students/*.stu; do
 
         sid=$(sed -n '1p' "$stu")
@@ -47,8 +58,8 @@ function top_student() {
         done
 
         if [[ $count > 0 ]]; then
-        gpa=$(echo "scale=2; $total / $count" | bc)
-            echo "$name $gpa"
+        gpa=$(echo " $total / $count" | bc -l )
+            echo "$name ${gpa: 0:4}"
         fi
     done | sort -k2 -nr
 

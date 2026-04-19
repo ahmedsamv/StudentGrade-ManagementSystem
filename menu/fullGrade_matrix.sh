@@ -2,6 +2,17 @@
 
 function fullGrade_matrix(){
 
+if [[ ! -d "../sgms_data/students" || -z "$(ls "../sgms_data/students")" ]]; then
+        echo "No students found"
+        return
+    fi
+
+
+    if [[ ! -d "../sgms_data/grades" || -z "$(ls "../sgms_data/grades")" ]]; then
+        echo "No grades found"
+        return
+    fi
+
 
     echo "----- Full Grade Matrix -----"
 
