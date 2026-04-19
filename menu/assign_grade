@@ -1,0 +1,66 @@
+ 
+ 
+ mkdir -p ../sgms_data/grades
+ 
+  function assign_grade(){
+  
+   echo "Enter subject code"
+   
+    read subcode
+  filesub="../sgms_data/subjects/$subcode.sub"
+  if [[ ! -f $filesub ]]; then 
+	echo "subject not found"
+	return
+  fi
+   
+  echo "Enter student id"
+   read stdcode
+  filestd="../sgms_data/students/$stdcode.stu"
+  if [[ ! -f $filestd ]]; then 
+	echo "student is not exist"
+	return
+        fi
+        
+        filegrd="../sgms_data/grades/$subcode.grd"
+ if [[  -f $filegrd ]] && grep -q "^$stdcode|" "$filegrd"; then
+	echo "grade already exist for the student"
+	return
+	fi
+	
+        
+        while true;  do  
+        echo "Enter the score (0-100)"
+         read score
+        
+        if ! [[ $score =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
+        echo "invalid score"
+        continue
+    fi
+
+    if (( $(echo "$score < 0 || $score > 100" | bc -l) )); then
+        echo "Score must be between 0 and 100"
+        continue
+    fi
+
+         
+         break
+        done
+        
+        if (( $(echo "$score >= 90"| bc -l) )); then letter="A+"
+        elif (( $(echo "$score >= 85"| bc -l) )); then letter="A"
+        elif (( $(echo "$score >= 80"| bc -l) )); then letter="A-"
+        elif (( $(echo "$score >= 75" | bc -l) )); then letter="B+"
+        elif (( $(echo "$score >= 70"| bc -l) )); then letter="B" 
+        elif (( $(echo "$score >= 65"| bc -l) )); then letter="B-"
+        elif (( $(echo "$score >= 60"| bc -l) )); then letter="C+"
+        elif (( $(echo "$score >= 55"| bc -l) )); then letter="C"
+        elif (( $(echo "$score >= 50"| bc -l) )); then letter="C-"
+        elif (( $(echo "$score >= 45"| bc -l) )); then letter="D"
+        else  
+         letter='F'
+        fi
+        echo "$stdcode|$score|$letter" >>"$filegrd"
+
+        echo "Grade assigned successfully!"
+}
+

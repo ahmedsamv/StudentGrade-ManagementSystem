@@ -6,8 +6,8 @@
    	echo "not valid subject code" 
    	return
    fi
-     grade_file="../grade_managment/grades/$code.grd"
-     sub_file="../subject_managment/subjects/$code.sub"
+     grade_file="../sgms_data/grades/$code.grd"
+     sub_file="../sgms_data/subjects/$code.sub"
    if [[ ! -f $sub_file ]]; then 
    	echo "no such subject added"
    		return

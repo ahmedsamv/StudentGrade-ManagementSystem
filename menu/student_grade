@@ -1,7 +1,7 @@
 
  #!/usr/bin/bash
 
-source ../grade_managment/assign_grade   
+source assign_grade   
 source ../grade_managment/view_grade         
 source ../grade_managment/delete_grade                
  
