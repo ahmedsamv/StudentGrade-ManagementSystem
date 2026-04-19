@@ -1,6 +1,5 @@
+  mkdir -p ../sgms_data/grades
  
- 
- mkdir -p ../sgms_data/grades
  
   function assign_grade(){
   
