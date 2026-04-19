@@ -1,4 +1,65 @@
 
 
+ update_grade(){
 
-function update_grade()
+echo "enter sub-grade code to update"
+read code
+
+ 
+
+filegrd="../grade_managment/grades/$code.grd"
+
+if [[ ! -f $filegrd ]]; then 
+ echo "grade not exist"
+ return
+fi
+
+echo "Enter student_id"
+read student_id
+
+if ! grep -q "^$student_id|" "$filegrd" ; then 
+echo "student not exist"
+return
+fi
+ 
+        while true;  do  
+        echo "Enter the score (0-100)"
+         read score
+        
+        if ! [[ $score =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
+        echo "invalid score"
+        continue
+    fi
+
+    if (( $(echo "$score < 0 || $score > 100" | bc -l) )); then
+        echo "Score must be between 0 and 100"
+        continue
+    fi
+
+         
+         break
+        done
+        
+        if (( $(echo "$score >= 90"| bc -l) )); then letter="A+"
+        elif (( $(echo "$score >= 85"| bc -l) )); then letter="A"
+        elif (( $(echo "$score >= 80"| bc -l) )); then letter="A-"
+        elif (( $(echo "$score >= 75" | bc -l) )); then letter="B+"
+        elif (( $(echo "$score >= 70"| bc -l) )); then letter="B" 
+        elif (( $(echo "$score >= 65"| bc -l) )); then letter="B-"
+        elif (( $(echo "$score >= 60"| bc -l) )); then letter="C+"
+        elif (( $(echo "$score >= 55"| bc -l) )); then letter="C"
+        elif (( $(echo "$score >= 50"| bc -l) )); then letter="C-"
+        elif (( $(echo "$score >= 45"| bc -l) )); then letter="D"
+        else  
+         letter='F'
+        fi
+        
+        sed -i "/^$student_id|/d" "$filegrd" 
+        echo "$student_id|$score|$letter" >> "$filegrd"
+        echo "Updated succssfully"
+
+
+
+
+
+}

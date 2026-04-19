@@ -3,7 +3,8 @@
 
 source ../grade_managment/assign_grade   
 source ../grade_managment/view_grade         
-source ../grade_managment/delete_grade                
+source ../grade_managment/delete_grade
+source ../grade_managment/update_grade                
  
 function student_grade() {
     
@@ -16,7 +17,7 @@ function student_grade() {
             "assign_grade") assign_grade ;; 
             "view_grades_subject")  view_grade ;;
             "delete_grade")  delete_grade  ;; 
-            "update_grade") echo "hi"  ;; 
+            "update_grade") update_grade   ;; 
             "Exit") break ;;
             *) echo "Invalid choice" ;;
         esac
