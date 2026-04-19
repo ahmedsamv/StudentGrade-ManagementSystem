@@ -48,5 +48,5 @@ fi
 echo "$code" >> "$file_sub"
 echo "$name" >> "$file_sub"
 echo "$credit" >> "$file_sub"
-
+echo "subject added successfully"
 } 
