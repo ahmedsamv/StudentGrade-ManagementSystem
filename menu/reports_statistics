@@ -1,5 +1,8 @@
 #! /usr/bin/bash 
 
+source student_transcript.sh
+
+
 function reports_statistics() {
    while true; do
         echo "=================================="
@@ -8,7 +11,7 @@ function reports_statistics() {
     select choice in "Student Transcript + GPA" "Subject Statistics"  "Top Students by GPA" "Failing Students Report" "Full Grade Matrix" "Exit"
     do
         case $choice in
-            "Student Transcript + GPA")  echo "hi from a"  ;; 
+            "Student Transcript + GPA")  student_transcript  ;; 
             "Subject Statistics") echo "hi from b" ;;
             "Top Students by GPA") echo "hi from c" ;; 
             "Failing Students Report") echo "hi from d"  ;; 
