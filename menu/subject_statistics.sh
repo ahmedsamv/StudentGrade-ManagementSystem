@@ -4,7 +4,7 @@ function subject_statistics(){
 
    read -p "Enter subject code: " subjcode
 
-    file="../subject_managment/subjects/$subjcode.sub"
+    file="../sgms_data/subjects/$subjcode.sub"
 
     if [[ ! -f "$file" ]]; then
         echo "Subject not found"
@@ -15,11 +15,11 @@ function subject_statistics(){
     credits=$(sed -n '3p' "$file")
 
     echo "----- Subject Info -----"
-    echo "Code: $code"
+    echo "Code: $subjcode"
     echo "Name: $name"
     echo "Credits: $credits"
 
-    grd_file="../grade_managment/grades/$subjcode.grd"
+    grd_file="../sgms_data/grades/$subjcode.grd"
 
     if [[ ! -f "$grd_file" ]]; then
         echo "No grades recorded for this subject"
