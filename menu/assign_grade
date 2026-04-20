@@ -2,7 +2,7 @@
  
  
   function assign_grade(){
-  file="../sgms_data/grades"
+  file="../sgms_data/subjects"
 if [[ -z "$(ls -A "$file")" ]]; then
 echo "no data found"
 return
