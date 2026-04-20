@@ -2,6 +2,12 @@
  
  
   function assign_grade(){
+  file="../sgms_data/grades"
+if [[ -z "$(ls -A "$file")" ]]; then
+echo "no data found"
+return
+fi
+
   
    echo "Enter subject code"
    
