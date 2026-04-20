@@ -1,6 +1,6 @@
- 
+   mkdir -p ../sgms_data/subjects
  add_subject(){
-  mkdir -p ../sgms_data/subjects
+ 
 
 while true;do
 echo "Enter subject code" 
