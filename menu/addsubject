@@ -17,7 +17,7 @@ else
  while true ;do
 echo "Enter subject name" 
 read name
-if ! [[ $name =~ ^[A-Za-z[:space:]]+$ ]]; then
+if ! [[ $name =~ ^[A-Za-z[:space:]]{2,5}$ ]]; then
 
    echo "this is not a valid name"
 else
@@ -32,7 +32,7 @@ echo "Enter subject credit"
 read credit
 if ! [[ $credit =~ ^[1-6]$ ]]; then
 
-   echo "this is not a valid credit"
+   echo "this is not a valid credit between[1-6]"
 else
 break
 fi 
