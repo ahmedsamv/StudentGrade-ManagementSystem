@@ -3,6 +3,7 @@
 
 
 function check_name(){
+
 		    
 		    while true;
 		do
@@ -46,8 +47,18 @@ function check_year(){
 }
 
 function uptade_student(){
-while true;
+
+
+if [[ ! -d "../sgms_data/students" || -z "$(ls "../sgms_data/students")" ]]; then
+        echo "No students found"
+        return
+    fi
+
+
+while true
 do
+
+
 
 read -p "enter id student you want update: " id 
 
