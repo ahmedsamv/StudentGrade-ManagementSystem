@@ -1,6 +1,11 @@
 
 
  update_grade(){
+ file="../sgms_data/grades"
+if [[ -z "$(ls -A "$file")" ]]; then
+echo "no data found"
+return
+fi
 
 echo "enter sub-grade code to update"
 read code
