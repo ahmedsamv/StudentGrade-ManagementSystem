@@ -1,5 +1,14 @@
  list_subjects(){
 
+file="../sgms_data/subjects"
+if [[ -z "$(ls -A "$file")" ]]; then
+echo "no data found"
+return
+fi
+
+
+
+
 for file_to_list in ../sgms_data/subjects/*.sub; do
 	[ -e "$file_to_list" ] || continue
 	
