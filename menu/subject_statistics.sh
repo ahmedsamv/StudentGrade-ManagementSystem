@@ -3,7 +3,7 @@
 function subject_statistics(){
 
 if [[ ! -d "../sgms_data/subjects" || -z "$(ls "../sgms_data/subjects")" ]]; then
-        echo "No students found"
+        echo "No subjects found"
         return
     fi
 
