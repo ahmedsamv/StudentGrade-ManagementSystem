@@ -24,7 +24,7 @@ ls ../sgms_data/subjects
    while true; do  
   echo "Enter a new name" 
   read name
-    if [[ ! $name =~ ^[A-Za-z[:space:]]+$ ]]; then
+    if [[ ! $name =~ ^[A-Za-z[:space:]]{2,10}$ ]]; then
         echo "Invalid name!"
        else
        break
@@ -36,7 +36,7 @@ ls ../sgms_data/subjects
   read credit
   
    if ! [[ $credit =~ ^[1-6]$ ]]; then
-        echo "Invalid Credit!"
+        echo "Invalid Credit! between[1-6]"
       else
       break
     fi
