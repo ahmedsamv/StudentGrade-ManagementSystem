@@ -4,18 +4,21 @@
 source assign_grade   
 source view_grade         
 source delete_grade
-source update_grade                
+source update_grade    
+source view_by_student
+      
  
 function student_grade() {
     
         echo "=================================="
         echo " Please choose from the menu below:"
         echo "=================================="
-    select choice in "assign_grade" "view_grades_subject"  "delete_grade" "update_grade" "back"
+    select choice in "assign_grade" "view_grades_subject" "view_grade_by_student"  "delete_grade" "update_grade" "back"
     do                                                                
         case $choice in
             "assign_grade") assign_grade ;; 
             "view_grades_subject")  view_grade ;;
+            "view_grade_by_student")  view_by_student ;;
             "delete_grade")  delete_grade  ;; 
             "update_grade") update_grade   ;; 
             "back") return ;;

@@ -1,0 +1,48 @@
+
+
+ view_by_student(){
+
+file="../sgms_data/grades"
+
+if [[ -z "$(ls -A "$file")" ]]; then
+echo "no data found"
+return
+fi
+
+echo "Enter student I_D"
+read stdcode
+
+student_file="../sgms_data/students/$stdcode.stu"
+
+if [[ ! -f $student_file ]]; then
+echo "student not found "
+return
+fi
+
+result=$(grep "^$stdcode|" ../sgms_data/grades/*.grd 2>/dev/null)
+
+if [[ -z "$result" ]]; then
+echo "No grade for this student"
+return
+fi
+
+echo "=============================="
+echo "Grades for student: $stdcode"
+echo "=============================="
+
+grep -H "^$stdcode|" ../sgms_data/grades/*.grd 2>/dev/null | while read -r file line
+do
+
+file=$(echo"$line" | cut -d ":" -f1 )
+data=$(echo"$line" | cut -d ":" -f2 )
+
+subject=$(echo "$file" | rev | cut -d "/" -f1 | rev | cut -d '.' -f1)
+
+score=$(echo "$data" | cut -d '|' -f2)
+grade=$(echo "$data" | cut -d '|' -f3)
+
+echo "Subject: $subject | Score: $score | Grade: $grade"
+
+done
+
+}
