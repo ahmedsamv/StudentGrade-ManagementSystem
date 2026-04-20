@@ -11,14 +11,14 @@ function student_grade() {
         echo "=================================="
         echo " Please choose from the menu below:"
         echo "=================================="
-    select choice in "assign_grade" "view_grades_subject"  "delete_grade" "update_grade" "Exit"
+    select choice in "assign_grade" "view_grades_subject"  "delete_grade" "update_grade" "back"
     do                                                                
         case $choice in
             "assign_grade") assign_grade ;; 
             "view_grades_subject")  view_grade ;;
             "delete_grade")  delete_grade  ;; 
             "update_grade") update_grade   ;; 
-            "Exit") break ;;
+            "back") return ;;
             *) echo "Invalid choice" ;;
         esac
     done

@@ -2,14 +2,23 @@
 
 function subject_statistics(){
 
+if [[ ! -d "../sgms_data/subjects" || -z "$(ls "../sgms_data/subjects")" ]]; then
+        echo "No subjects found"
+        return
+    fi
+
+while true 
+do 
    read -p "Enter subject code: " subjcode
 
     file="../sgms_data/subjects/$subjcode.sub"
 
-    if [[ ! -f "$file" ]]; then
-        echo "Subject not found"
-        return
+    if [[  -f "$file" ]]; then
+        break
+     else    
+	echo "Subject not found try again"
     fi
+done
 
     name=$(sed -n '2p' "$file")
     credits=$(sed -n '3p' "$file")
@@ -47,6 +56,9 @@ print "no data"
 }
 }
 ' "$grd_file"
+
+
+
 }
 
 
