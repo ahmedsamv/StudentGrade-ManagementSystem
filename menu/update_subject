@@ -1,6 +1,14 @@
  update_subject(){
  
-echo "FILE=$file_update"
+
+file="../sgms_data/subjects"
+if [[ -z "$(ls -A "$file")" ]]; then
+echo "no data found"
+return
+fi
+
+
+
 ls ../sgms_data/subjects
   echo "enter a subject code" 
   read code
@@ -13,21 +21,26 @@ ls ../sgms_data/subjects
    
         
     fi   
-     
+   while true; do  
   echo "Enter a new name" 
   read name
     if [[ ! $name =~ ^[A-Za-z[:space:]]+$ ]]; then
         echo "Invalid name!"
-        return
+       else
+       break
     fi
+    done
+    
+    while true; do 
   echo "Enter a new credit" 
   read credit
   
    if ! [[ $credit =~ ^[1-6]$ ]]; then
         echo "Invalid Credit!"
-        return
+      else
+      break
     fi
-  
+  done
   
   echo "$code">"$file_update"
   echo "$name">>"$file_update"
