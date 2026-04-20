@@ -1,4 +1,10 @@
 function view_grade(){
+
+file="../sgms_data/grades"
+if [[ -z "$(ls -A "$file")" ]]; then
+echo "no data found"
+return
+fi
 echo "Enter subject code" 
 read code
  filegrd="../sgms_data/grades/$code.grd"
