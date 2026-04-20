@@ -1,4 +1,11 @@
  delete_subject(){
+ 
+ file="../sgms_data/subjects"
+if [[ -z "$(ls -A "$file")" ]]; then
+echo "no data found"
+return
+fi
+
    echo "Enter s subject to be deleted" 
    read code
    
